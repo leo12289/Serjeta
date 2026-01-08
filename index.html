@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sarjeta</title>
+    <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+    <main class="conteudo">
+        <h1>VERIFICAÇÃO DA CAPACIDADE ADMISSÍVEL DA SARJETA</h1>
+
+        <section>
+            <h2>COORDENADAS GEOGRÁFICAS DA CIDADE LOCAL DO PROJETO</h2>
+            <div class="conteudo__linha1">
+                <p class="txt3-var">Longitude:</p>
+                <input class="txt3" type="number" min="-180" max="180" step="any" id="longitude"
+                    placeholder="em grau decimal, ex: 21.50">
+                <p class="txt3">Graus</p>
+            </div>
+
+            <div class="conteudo__linha1">
+                <p class="txt3-var">Latitude:</p>
+                <input class="txt3" type="number" min="-90" max="90" step="any" id="latitude"
+                    placeholder="em grau decimal, ex: 21.50">
+                <p class="txt3">Graus</p>
+            </div>
+
+        </section>
+
+        <section>
+            <h2>BACIA DE CONTRIBUIÇÃO</h2>
+
+            <div class="conteudo__linha1">
+                <p class="txt3-var">Área:</p>
+                <input class="txt3" id="Ab" placeholder="em metros quadrados, ex: 1999.99">
+                <p class="txt3">m²</p>
+            </div>
+
+            <div class="conteudo__linha1">
+                <p class="txt3-var">Comprimento do talvegue:</p>
+                <input class="txt3" id="Lt" placeholder="em metros, ex: 99.99">
+                <p class="txt3">m</p>
+            </div>
+
+            <div class="conteudo__linha1">
+                <p class="txt3-var">Desnível geométrico:</p>
+                <input class="txt3" id="Hg" placeholder="em metros, ex: 99.99">
+                <p class="txt3">m</p>
+            </div>
+
+            <div class="conteudo__linha1">
+                <p class="txt3-var">Ceficiente de permeabilidade:</p>
+                <input class="txt3" type="number" min="0" max="1" step="0.05" id="runoff"
+                    placeholder="adimensional, de 0 a 1">
+                <p class="txt3">[-]</p>
+            </div>
+
+        </section>
+
+        <section>
+            <h2>CHUVA DE PROJETO</h2>
+
+            <div class="conteudo__linha1">
+                <p class="txt3-var">Período de retorno:</p>
+                <input class="txt3" id="Tr" placeholder="em anos, ex: 5">
+                <p class="txt3">anos</p>
+            </div>
+
+            <div class="conteudo__linha1">
+                <p class="txt3-var">Tempo de concentração:</p>
+                <p class="txt3-res" id="tc">0.00</p>
+                <p class="txt3">min</p>
+            </div>
+
+            <div class="conteudo__linha1">
+                <p class="txt3-var">Intensidade pluviométrica:</p>
+                <p class="txt3-res" id="i">0.00</p>
+                <p class="txt3">mm/h</p>
+            </div>
+
+        </section>
+
+        <section>
+            <h2>GEOMETRIA DA RUA</h2>
+
+            <div class="conteudo__linha1">
+                <p class="txt3-var">Declividade longitudinal:</p>
+                <input class="txt3" id="I" placeholder="em centímetros/metros, ex: 0.60">
+                <p class="txt3">cm/m</p>
+            </div>
+
+            <div class="conteudo__linha1">
+                <p class="txt3-var">Declividade transversal:</p>
+                <input class="txt3" id="s" placeholder="em centímetros/metros, ex: 2.00">
+                <p class="txt3">cm/m</p>
+            </div>
+
+            <div class="conteudo__linha1">
+                <p class="txt3-var">Largura máxima admitida da enxurrada:</p>
+                <input class="txt3" id="Tmax" placeholder="em metros, ex: 2.00">
+                <p class="txt3">m</p>
+            </div>
+        </section>
+
+        <section>
+            <h2>GEOMETRIA DA GUIA E DA SARJETA</h2>
+
+            <div class="conteudo__linha1">
+                <p class="txt3-var">Coeficiente de rugosidade:</p>
+                <input class="txt3" id="n" placeholder="adimensional, recomendado 0.016">
+                <p class="txt3">[-]</p>
+            </div>
+
+            <div class="conteudo__linha1">
+
+                <img class="imagem1" src="img/sarjeta1.png" alt="Imagem da guia e sarjeta dimenssões básicas">
+
+                <div class="conteudo__coluna1">
+                    <div class="conteudo__linha1">
+                        <p class="txt4-var">A:</p>
+                        <input class="txt4" id="A" placeholder="em cm, ex: 10.00">
+                        <p class="txt4-var">cm</p>
+                    </div>
+
+                    <div class="conteudo__linha1">
+                        <p class="txt4-var">B:</p>
+                        <input class="txt4" id="B" placeholder="em cm, ex: 25.00">
+                        <p class="txt4-var">cm</p>
+                    </div>
+
+                    <div class="conteudo__linha1">
+                        <p class="txt4-var">C:</p>
+                        <input class="txt4" id="C" placeholder="em cm, ex: 12.00">
+                        <p class="txt4-var">cm</p>
+                    </div>
+
+                    <div class="conteudo__linha1">
+                        <p class="txt4-var">D:</p>
+                        <input class="txt4" id="D" placeholder="em cm, ex: 11.00">
+                        <p class="txt4-var">cm</p>
+                    </div>
+
+                    <div class="conteudo__linha1">
+                        <p class="txt4-var">E:</p>
+                        <input class="txt4" id="E" placeholder="em cm, ex: 15.00">
+                        <p class="txt4-var">cm</p>
+                    </div>
+
+                    <div class="conteudo__linha1">
+                        <p class="txt4-var">F:</p>
+                        <input class="txt4" id="F" placeholder="em cm, ex: 42.00">
+                        <p class="txt4-var">cm</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="conteudo__linha1 conteudo__linha2">
+                <img class="imagem2" src="img/sarjeta2.png" alt="Imagem da guia e sarjeta dimenssões básicas">
+                <img class="imagem2" src="img/sarjeta3.png" alt="Imagem da guia e sarjeta dimenssões básicas">
+            </div>
+        </section>
+
+
+        <section>
+            <h2>CALCULAR A CAPACIDADE DA SARJETA</h2>
+
+            <div class="conteudo__linha1">
+                <button class="conteudo__linha1__botao" id="Reset">Resetar</button>
+                <button class="conteudo__linha1__botao" id="Calcular">Calcular</button>
+            </div>
+        </section>
+    </main>
+</body>
+
+</html>

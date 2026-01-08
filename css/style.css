@@ -1,0 +1,144 @@
+:root {
+  --cor-titulo1: #001A33;
+  --cor-titulo2: #D9DADE;
+  --cor-button: #16a34a;
+  --cor-reset: #94B6D5;
+  --cor-texto: #FFFFFF;
+  --cor-input: #000000;
+  --wd-txt3: 25%;
+  --wd-txt4-var: 10%;
+  --wd-txt4: 80%;
+  --section-color: #1D4870;
+}
+
+p,
+input {
+  font-size: 20px;
+  color: var(--cor-texto);
+}
+
+input {
+  text-align: center;
+  font-size: 20px;
+  color: var(--cor-input);
+}
+
+h1 {
+  font-size: 45px;
+  text-align: center;
+  font-weight: 800;
+  color: var(--cor-titulo1);
+  margin-bottom: 2vw;
+}
+
+h2 {
+  font-size: 30px;
+  text-align: center;
+  font-weight: 700;
+  color: var(--cor-titulo2);
+  margin-bottom: 1vw;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  box-sizing: border-box;
+  width: 100vw;
+}
+
+section {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: var(--section-color);
+  margin-top: 0vw;
+  margin-bottom: 2vw;
+  padding: 2vw;
+}
+
+.txt3-var {
+  text-align: right;
+  width: var(--wd-txt3);
+}
+
+.txt3-res {
+  text-align: center;
+  width: var(--wd-txt3);
+}
+
+.txt3 {
+  width: var(--wd-txt3);
+}
+
+.txt4-var {
+  text-align: right;
+  width: var(--wd-txt4-var);
+}
+
+.txt4 {
+  width: var(--wd-txt4);
+}
+
+.imagem1 {
+  width: 50%;
+  height: auto;
+}
+
+.imagem2 {
+  width: 40%;
+  height: auto;
+}
+
+.conteudo {
+  margin: 2%;
+  width: 80vw;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  /* flex-wrap: wrap; */
+  justify-content: space-between;
+}
+
+.conteudo__linha1 {
+  padding: 0.5vw 0;
+  width: 100%;
+  display: flex;
+  gap: 2vw;
+  justify-content: center;
+  align-items: center;
+}
+
+.conteudo__linha2 {
+  padding: 1.5vw 0;
+}
+
+.conteudo__coluna1 {
+  display: flex;
+  align-items: center;
+  height: 100%;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 1vw;
+}
+
+.conteudo__linha1__botao {
+  font-size: 30px;
+  text-align: center;
+  font-weight: 700;
+  width: 15vw;
+  padding: .5vw;
+  border-radius: 0.8vw;
+}
+
+#Calcular {
+  background-color: var(--cor-button);
+  color: var(--cor-titulo2);
+}
+
+#Reset {
+  background-color: var(--cor-reset);
+  color: var(--cor-titulo1);
+
+}
