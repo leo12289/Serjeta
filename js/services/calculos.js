@@ -1,5 +1,6 @@
 //import { estacoes } from "../data/estacoes.js";
 //import { Estacao } from "../models/Estacao.js";
+import { tabela_fator_reducao } from "../data/fatorReducaoSarjeta.js"
 
 const longitude = document.getElementById("longitude")
 const latitude = document.getElementById("latitude")

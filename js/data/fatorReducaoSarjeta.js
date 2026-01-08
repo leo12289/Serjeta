@@ -1,4 +1,4 @@
-const tabela_fator_reducao = [
+export const tabela_fator_reducao = [
     { declividade: 0.40, fator_reducao: 0.5000 },
     { declividade: 0.60, fator_reducao: 0.8000 },
     { declividade: 2.14, fator_reducao: 0.8000 },
