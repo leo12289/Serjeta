@@ -1,4 +1,4 @@
-import { EstacaoPluviometrica } from "/EstacaoPluviometrica.js";
+import { EstacaoPluviometrica } from "./EstacaoPluviometrica.js";
 
 export class EstacaoTipoC extends EstacaoPluviometrica {
     constructor(tc, T, A1, B1, C1, D1, tcMax1, Tmax1, A2, B2, C2, D2, tcMax2, Tmax2) {

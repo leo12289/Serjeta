@@ -100,6 +100,17 @@ export class BotaoCalcular {
         return inferior.fator_reducao + (this.declividade_longitudinal - inferior.declividade) * (superior.fator_reducao - inferior.fator_reducao) / (superior.declividade - inferior.declividade);
     }
 
+    calcular_geometrias_sarjeta() {
+        this.calcular_y0_max();
+        this.calcular_y2_max();
+        this.calcular_x_max();
+        this.calcular_tan_teta1();
+        this.calcular_tan_teta2();
+        this.calcular_Z0();
+        this.calcular_Z2();
+        this.calcular_T_max();
+    }
+
     calcular_y0_max() {
         this.y0_max = this.B - this.D;
     }
@@ -131,22 +142,73 @@ export class BotaoCalcular {
     calcular_T_max() {
         this.T_max = this.tan_teta2 * this.y0_max + this.tan_teta1 * (this.y0_max - this.y2_max) + this.tan_teta2 * this.y2_max;
     }
-
+    
     verificacaoEnxurradaMax() {
-        enxurradaIsMenorMax = this.T_max <= this.largura_enxurrada_max;
+        return this.T_max <= this.largura_enxurrada_max;
     }
     
     calcular_enxurradas() {
-        
+        this.tabela_capacidade_sarjeta = [];
+
+        for (let dy = 0.00; dy <= this.y0_max; dy += this.dy) {
+            const yi = dy;
+
+            if (yi > this.y0_max - this.y2_max) {
+                const yi2 = yi - (this.y0_max - this.y2_max);
+            }
+            else{
+                const yi2 = 0;
+            }
+
+            const K1 = 0.375 * (this.Z0 / this.coeficiente_manning) * yi;
+            const K2 = 0.375 * (this.Z0 / this.coeficiente_manning) * yi2;
+            const K3 = 0.375 * (this.Z2 / this.coeficiente_manning) * yi2;
+            const Ki = K1 - K2 + K3;
+            const Ti = this.tan_teta1 * yi + this.tan_teta2 * (yi - yi2) + this.Z2 * yi2;
+
+            this.tabela_capacidade_sarjeta.push(
+                {
+                    y0: yi,
+                    y1: yi2,
+                    K: Ki,
+                    T: Ti
+                }
+            );
+        }
     }
 
-}
+    criaTabelaEnxurrada(){
+        for (const row of this.tabela_capacidade_sarjeta) {
 
+            const container = document.getElementById("tabela-enxurrada");
+
+            const p0 = document.createElement("p");
+            p.className = "txt3";
+            p.textContent = row.y0;
+            container.appendChild(p0);
+            
+            const p1 = document.createElement("p");
+            p.className = "txt3";
+            p.textContent = row.y1;
+            container.appendChild(p1);
+
+            const p2 = document.createElement("p");
+            p.className = "txt3";
+            p.textContent = row.K;
+            container.appendChild(p2);
+
+            const p3 = document.createElement("p");
+            p.className = "txt3";
+            p.textContent = row.T;
+            container.appendChild(p3);
+        }
+    }
+}
 
 /* 
-tabela_fator_reducao[i].declividade
-
-function interpolarFatReducao(declividade, p0, p1) {
-    return p0.fator_reducao + (declividade - p0.declividade) * (p1.fator_reducao - p0.fator_reducao) / (p1.declividade - p0.declividade);
-}
+            <div class="conteudo__linha1">
+                <p class="txt3-var">Coeficiente de rugosidade:</p>
+                <p class="txt3">0.016</p>
+                <p class="txt3">[-]</p>
+            </div>
 */
