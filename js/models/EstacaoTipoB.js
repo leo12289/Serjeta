@@ -2,7 +2,7 @@ import { EstacaoPluviometrica } from "/EstacaoPluviometrica.js";
 
 export class EstacaoTipoB extends EstacaoPluviometrica {
     constructor(tc, T, A1, B1, C1, D1, E1, tcMax1, Tmax1, A2, B2, C2, D2, E2, tcMax2, Tmax2) {
-        super(tc, T)
+        super(tc, T);
         this.tipo = 'tipo B';
         this.tc = tc / 60;
         this.A1 = A1;
@@ -25,13 +25,13 @@ export class EstacaoTipoB extends EstacaoPluviometrica {
         if (
             typeof this.tc !== 'number' ||
             typeof this.T !== 'number'
-        ) return 0
+        ) return 0;
         if (this.tc < this.tcMax1 && this.T <= this.Tmax1) {
-            return (((this.A1 * Math.log(this.T) + this.B1) * Math.log(this.T + (this.E1 / 60))) + this.C1 * Math.log(this.T) + this.D1) / this.tc
+            return (((this.A1 * Math.log(this.T) + this.B1) * Math.log(this.T + (this.E1 / 60))) + this.C1 * Math.log(this.T) + this.D1) / this.tc;
         }
         else if (this.tc <= this.tcMax2 && this.T <= this.tcMax2) {
-            return (((this.A2 * Math.log(this.T) + this.B2) * Math.log(this.T + (this.E2 / 60))) + this.C2 * Math.log(this.T) + this.D2) / this.tc
+            return (((this.A2 * Math.log(this.T) + this.B2) * Math.log(this.T + (this.E2 / 60))) + this.C2 * Math.log(this.T) + this.D2) / this.tc;
         }
-        return 0
+        return 0;
     }
 }
