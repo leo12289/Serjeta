@@ -7,24 +7,24 @@ export class BotaoCalcular {
     }
 
     carregar_DOM() {
-        this.longitude = document.getElementById("longitude");
-        this.latitude = document.getElementById("latitude");
-        this.area_bacia_contribuicao = document.getElementById("Ab");
-        this.comprimento_talvegue = document.getElementById("Lt");
-        this.desnivel_geometrico = document.getElementById("Hg");
-        this.coeficiente_runoff = document.getElementById("runoff");
-        this.periodo_retorno = document.getElementById("Tr");
-        this.declividade_longitudinal = document.getElementById("I");
-        this.declividade_transversal = document.getElementById("s");
-        this.largura_enxurrada_max = document.getElementById("Tmax");
-        this.coeficiente_manning = document.getElementById("n");
-        this.A = document.getElementById("A");
-        this.B = document.getElementById("B");
-        this.C = document.getElementById("C");
-        this.D = document.getElementById("D");
-        this.E = document.getElementById("E");
-        this.F = document.getElementById("F");
-        this.dy = document.getElementById("dy");
+        this.longitude = parseFloat(document.getElementById("longitude").value);
+        this.latitude = parseFloat(document.getElementById("latitude").value);
+        this.area_bacia_contribuicao = parseFloat(document.getElementById("Ab").value);
+        this.comprimento_talvegue = parseFloat(document.getElementById("Lt").value);
+        this.desnivel_geometrico = parseFloat(document.getElementById("Hg").value);
+        this.coeficiente_runoff = parseFloat(document.getElementById("runoff").value);
+        this.periodo_retorno = parseFloat(document.getElementById("Tr").value);
+        this.declividade_longitudinal = parseFloat(document.getElementById("I").value);
+        this.declividade_transversal = parseFloat(document.getElementById("s").value);
+        this.largura_enxurrada_max = parseFloat(document.getElementById("Tmax").value);
+        this.coeficiente_manning = parseFloat(document.getElementById("n").value);
+        this.A = parseFloat(document.getElementById("A").value);
+        this.B = parseFloat(document.getElementById("B").value);
+        this.C = parseFloat(document.getElementById("C").value);
+        this.D = parseFloat(document.getElementById("D").value);
+        this.E = parseFloat(document.getElementById("E").value);
+        this.F = parseFloat(document.getElementById("F").value);
+        this.dy = parseFloat(document.getElementById("dy").value);
     }
 
     validar(valor) {
@@ -32,7 +32,7 @@ export class BotaoCalcular {
     }
 
     verificacaoCampos() {
-        return validar(this.longitude) &&
+        return this.validar(this.longitude) &&
             this.validar(this.latitude) &&
             this.validar(this.area_bacia_contribuicao) &&
             this.validar(this.comprimento_talvegue) &&
@@ -63,6 +63,7 @@ export class BotaoCalcular {
 
     calculo_tc() {
         this.tc = 57 * ((this.comprimento_talvegue / 1000) ** 30) / this.desnivel_geometrico;
+        console.log('tc calculada');
     }
 
     calcula_chuva() {

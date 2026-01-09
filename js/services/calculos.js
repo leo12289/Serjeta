@@ -24,4 +24,7 @@ botao_calcular.addEventListener("click", () => {
             botao.criaTabelaEnxurrada();
         }
     }
+    else{
+        console.log("else da verificacao");
+    }
 });
