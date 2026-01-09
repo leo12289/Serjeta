@@ -24,6 +24,7 @@ export class BotaoCalcular {
         this.D = document.getElementById("D");
         this.E = document.getElementById("E");
         this.F = document.getElementById("F");
+        this.dy = document.getElementById("dy");
     }
 
     validar(valor) {
@@ -32,22 +33,23 @@ export class BotaoCalcular {
 
     verificacaoCampos() {
         return validar(this.longitude) &&
-            validar(this.latitude) &&
-            validar(this.area_bacia_contribuicao) &&
-            validar(this.comprimento_talvegue) &&
-            validar(this.desnivel_geometrico) &&
-            validar(this.coeficiente_runoff) &&
-            validar(this.periodo_retorno) &&
-            validar(this.declividade_longitudinal) &&
-            validar(this.declividade_transversal) &&
-            validar(this.largura_enxurrada_max) &&
-            validar(this.coeficiente_manning) &&
-            validar(this.A) &&
-            validar(this.B) &&
-            validar(this.C) &&
-            validar(this.D) &&
-            validar(this.E) &&
-            validar(this.F)
+            this.validar(this.latitude) &&
+            this.validar(this.area_bacia_contribuicao) &&
+            this.validar(this.comprimento_talvegue) &&
+            this.validar(this.desnivel_geometrico) &&
+            this.validar(this.coeficiente_runoff) &&
+            this.validar(this.periodo_retorno) &&
+            this.validar(this.declividade_longitudinal) &&
+            this.validar(this.declividade_transversal) &&
+            this.validar(this.largura_enxurrada_max) &&
+            this.validar(this.coeficiente_manning) &&
+            this.validar(this.A) &&
+            this.validar(this.B) &&
+            this.validar(this.C) &&
+            this.validar(this.D) &&
+            this.validar(this.E) &&
+            this.validar(this.F) &&
+            this.validar(this.dy)
     }
 
     converter_geometria_sarjeta() {
@@ -123,15 +125,19 @@ export class BotaoCalcular {
     }
 
     calcular_Z2() {
-        1 / (this.declividade_transversal / 100);
+        this.Z2 = 1 / (this.declividade_transversal / 100);
     }
 
     calcular_T_max() {
-        this.tan_teta2 * this.y0_max + this.tan_teta1 * (this.y0_max - this.y2_max) + this.tan_teta2 * this.y2_max;
+        this.T_max = this.tan_teta2 * this.y0_max + this.tan_teta1 * (this.y0_max - this.y2_max) + this.tan_teta2 * this.y2_max;
     }
 
+    verificacaoEnxurradaMax() {
+        enxurradaIsMenorMax = this.T_max <= this.largura_enxurrada_max;
+    }
+    
     calcular_enxurradas() {
-
+        
     }
 
 }

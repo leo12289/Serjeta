@@ -127,6 +127,7 @@ section {
   font-size: 30px;
   text-align: center;
   font-weight: 700;
+  margin: 3vw 0vw;
   width: 15vw;
   padding: .5vw;
   border-radius: 0.8vw;
@@ -140,5 +141,4 @@ section {
 #Reset {
   background-color: var(--cor-reset);
   color: var(--cor-titulo1);
-
 }
