@@ -5,8 +5,12 @@
 // import { tabela_fator_reducao } from "../data/fatorReducaoSarjeta.js"
 
 import { BotaoCalcular } from "../models/BotaoCalcular.js";
+import { AlterarInputs } from "../models/AlterarInputs.js";
 
 const botao_calcular = document.getElementById("Calcular");
+const botao_preencher = document.getElementById("Preenche");
+const botao_resetar = document.getElementById("Resetar");
+
 botao_calcular.addEventListener("click", () => {
     const botao = new BotaoCalcular();
     botao.carregar_DOM();
@@ -16,15 +20,22 @@ botao_calcular.addEventListener("click", () => {
         botao.calculo_tc();
         botao.calcula_chuva();
         botao.calcular_vazao_chuva();
-        botao.calcular_fator_reducao();
         botao.calcular_geometrias_sarjeta();
+        botao.calcular_enxurradas();
+        botao.criaTabelaEnxurrada();
+        botao.verificacaoVazaoCapacidade();
+    }
+    else {
+        alert("Desculpe, mas tem algum problema nos valores preenchdos. Insira valores numéricos e preencha todos os campos!");
+    }
+});
 
-        if (botao.verificacaoEnxurradaMax()) {
-            botao.calcular_enxurradas();
-            botao.criaTabelaEnxurrada();
-        }
-    }
-    else{
-        console.log("else da verificacao");
-    }
+botao_resetar.addEventListener("click", () => {
+    const botao = new AlterarInputs();
+    botao.apagar();
+});
+
+botao_preencher.addEventListener("click", () => {
+    const botao = new AlterarInputs();
+    botao.preencher();
 });

@@ -1,8 +1,9 @@
 :root {
   --cor-titulo1: #001A33;
   --cor-titulo2: #D9DADE;
-  --cor-button: #16a34a;
-  --cor-reset: #94B6D5;
+  --cor-calcular: #16a34a;
+  --cor-preencher: #90caf9;
+  --cor-resetar: #c62828;
   --cor-texto: #FFFFFF;
   --cor-input: #000000;
   --wd-txt3: 25%;
@@ -81,6 +82,19 @@ section {
   width: var(--wd-txt4);
 }
 
+.txt-tab-cab {
+  font-size: 30px;
+  text-align: center;
+  color: var(--cor-titulo2);
+  width: var(--wd-txt3);
+}
+
+.txt-tab {
+  font-size: 25px;
+  text-align: center;
+  width: var(--wd-txt3);
+}
+
 .imagem1 {
   width: 50%;
   height: auto;
@@ -134,11 +148,16 @@ section {
 }
 
 #Calcular {
-  background-color: var(--cor-button);
-  color: var(--cor-titulo2);
+  background-color: var(--cor-calcular);
+  color: var(--cor-texto);
 }
 
-#Reset {
-  background-color: var(--cor-reset);
+#Resetar {
+  background-color: var(--cor-resetar);
+  color: var(--cor-texto);
+}
+
+#Preenche {
+  background-color: var(--cor-preencher);
   color: var(--cor-titulo1);
 }
