@@ -43,7 +43,9 @@ export class AlterarInputs {
         this.dy = this.tratar_input("dy", "");
 
         const ApagarTabela = new BotaoCalcular();
-        ApagarTabela.deletaTabelaEnxurrada();
+        ApagarTabela.deletaSeletorPorId("div__Tabela__Sarjeta");
+        ApagarTabela.deletaSeletorPorId("capacidade_escoamento");
+        ApagarTabela.deletaSeletorPorId("conclusao");
     }
 
     tratar_input(input, value) {

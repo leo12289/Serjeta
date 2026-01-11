@@ -24,6 +24,8 @@ botao_calcular.addEventListener("click", () => {
         botao.calcular_enxurradas();
         botao.criaTabelaEnxurrada();
         botao.verificacaoVazaoCapacidade();
+        botao.criar_section_cap_escoamento();
+        botao.criar_section_conclusao();
     }
     else {
         alert("Desculpe, mas tem algum problema nos valores preenchdos. Insira valores numéricos e preencha todos os campos!");

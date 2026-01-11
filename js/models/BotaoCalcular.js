@@ -264,17 +264,17 @@ export class BotaoCalcular {
         section.appendChild(div);
     }
 
-    deletaTabelaEnxurrada() {
-        const elemento = document.getElementById("div__Tabela__Sarjeta");
+    deletaSeletorPorId(id) {
+        const elemento = document.getElementById(id);
         if (elemento) {
             elemento.remove();
         }
     }
 
     criaTabelaEnxurrada() {
-        this.deletaTabelaEnxurrada();
+        this.deletaSeletorPorId("div__Tabela__Sarjeta");
         this.criaBaseTabela();
-        this.criaRowTabela("conteudo__linha1", "txt-tab-cab", 'y', `y'`, 'K', 'T');
+        this.criaRowTabela("conteudo__linha1", "txt-tab-cab", 'y [cm]', `y' [cm]`, 'K [-]', 'T [m]');
 
         for (const row of this.tabela_capacidade_sarjeta) {
             const y0 = this.arredondar_valores(row.y0 * 100, 2);
@@ -342,42 +342,99 @@ export class BotaoCalcular {
         console.log(this.capacidade);
     }
 
-    // parei aqui
-    criar_section_cap_escoamento {
+    criar_section_cap_escoamento() {
+        this.deletaSeletorPorId("capacidade_escoamento");
+        const section = document.createElement("section");
+        const main = document.getElementById("conteudo");
+        section.id = "capacidade_escoamento";
+        main.appendChild(section);
+
+        const titulo = document.createElement("h2");
+        titulo.textContent = "CAPACIDADE DE ESCOAMENTO";
+        section.appendChild(titulo);
+
+        // VAZÃO CHUVA DE PROJETO
         const div = document.createElement("div");
-        div.textContent = "Olá mundo";
+        div.className = "conteudo__linha1";
+        section.appendChild(div);
 
-        document.body.appendChild(div);
+        const p = document.createElement("p");
+        p.className = "txt3-var";
+        p.textContent = "Vazão efetiva da chuva de projeto:";
+        div.appendChild(p);
+
+        const p2 = document.createElement("p");
+        p2.className = "txt3-res";
+        p2.textContent = this.arredondar_valores(this.capacidade.Qi * 1000, 2);
+        div.appendChild(p2);
+
+        const p3 = document.createElement("p");
+        p3.className = "txt3";
+        p3.textContent = "l/s";
+        div.appendChild(p3);
+
+        // VAZÃO CAPACIDADE TEÓRICA
+        const div2 = document.createElement("div");
+        div2.className = "conteudo__linha1";
+        section.appendChild(div2);
+
+        const p4 = document.createElement("p");
+        p4.className = "txt3-var";
+        p4.textContent = "Vazão admissível da sarjeta:";
+        div2.appendChild(p4);
+
+        const p5 = document.createElement("p");
+        p5.className = "txt3-res";
+        p5.textContent = this.arredondar_valores(this.capacidade.Qc * 1000, 2);
+        div2.appendChild(p5);
+
+        const p6 = document.createElement("p");
+        p6.className = "txt3";
+        p6.textContent = "l/s";
+        div2.appendChild(p6);
     }
-}
 
+    criar_section_conclusao() {
+        if (this.capacidade.Qc >= this.capacidade.Qi) {
+            this.deletaSeletorPorId("conclusao");
+            const section = document.createElement("section");
+            const main = document.getElementById("conteudo");
+            section.id = "conclusao";
+            main.appendChild(section);
 
-/*
-            const section = document.getElementById("div__Tabela__Sarjeta");
+            const titulo = document.createElement("h2");
+            titulo.textContent = "CONCLUSAO";
+            section.appendChild(titulo);
+
             const div = document.createElement("div");
-            div.className = classDiv;
-            div.id = 'div__Tabela__Sarjeta'
-
-            const p0 = document.createElement("p");
-            p0.className = classP;
-            p0.textContent = val1;
-            div.appendChild(p0);
-
-            const p1 = document.createElement("p");
-            p1.className = classP;
-            p1.textContent = val2;
-            div.appendChild(p1);
-
-            const p2 = document.createElement("p");
-            p2.className = classP;
-            p2.textContent = val3;
-            div.appendChild(p2);
-
-            const p3 = document.createElement("p");
-            p3.className = classP;
-            p3.textContent = val4;
-            div.appendChild(p3);
-
+            div.className = "conteudo__linha1";
             section.appendChild(div);
 
-*/
+            const p = document.createElement("p");
+            p.className = "txt-conclusao";
+            p.textContent = "A sarjeta em estudo TEM capacidade sulficiente para escoar as águas pluviais, uma vez que a vazão admissível é SUPERIOR à vazão efetiva da chuva de projeto.";
+            div.appendChild(p);
+        }
+        else{
+            this.deletaSeletorPorId("conclusao");
+            const section = document.createElement("section");
+            const main = document.getElementById("conteudo");
+            section.id = "conclusao";
+            main.appendChild(section);
+
+            const titulo = document.createElement("h2");
+            titulo.textContent = "CONCLUSAO";
+            section.appendChild(titulo);
+
+            const div = document.createElement("div");
+            div.className = "conteudo__linha1";
+            section.appendChild(div);
+
+            const p = document.createElement("p");
+            p.className = "txt-conclusao";
+            p.textContent = "A sarjeta em estudo NÃO TEM capacidade sulficiente para escoar as águas pluviais, uma vez que a vazão admissível é INFERIOR à vazão efetiva da chuva de projeto.";
+            div.appendChild(p); 
+        }
+    }
+
+}

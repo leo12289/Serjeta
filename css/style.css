@@ -9,6 +9,7 @@
   --wd-txt3: 25%;
   --wd-txt4-var: 10%;
   --wd-txt4: 80%;
+  --wd-txtConclusao: 100%;
   --section-color: #1D4870;
 }
 
@@ -80,6 +81,11 @@ section {
 
 .txt4 {
   width: var(--wd-txt4);
+}
+
+.txt-conclusao {
+  width: var(--wd-txt4);
+  text-indent: 2em;
 }
 
 .txt-tab-cab {
